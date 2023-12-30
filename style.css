@@ -1,0 +1,552 @@
+/* | IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap'); */
+
+/* | RESET */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* | UTILITY STYLES */
+.no-wrap {
+	white-space: nowrap;
+}
+
+.df {
+	display: flex;
+}
+
+img {
+	display: block;
+}
+
+input {
+	font: inherit;
+}
+
+.cp {
+	cursor: pointer;
+}
+
+/* | VARIABLES */
+:root {
+	/* | COLORS */
+	--very-dark-blue: hsl(243, 87%, 12%);
+	--desaturated-blue: hsl(238, 22%, 44%);
+	--dark-blue: hsl(224, 74%, 53%);
+	--bright-blue: hsl(224, 93%, 58%);
+	--dark-blue-op: hsla(224, 74%, 53%, 0.75);
+	--bright-blue-op: hsla(224, 67%, 65%, 0.8);
+	--bright-blue-op: #6b8be3cc;
+	--moderate-cyan: hsl(170, 45%, 43%);
+	--light-grayish-blue: hsl(240, 75%, 98%);
+	--light-gray: hsl(0, 0%, 75%);
+	--red: hsla(348, 100%, 61%, 0.98);
+	--footer-color: hsl(243, 86%, 85%);
+
+	/* | FONTS */
+	--raleway-fonts: 'Raleway';
+	--open-fonts: 16px 'Open Sans';
+	--h2-font: 40px;
+	--h3-font: 32px;
+	--s-font: 14px;
+	--xs-fonts: 10px;
+}
+
+html {
+	max-width: 1440px;
+}
+
+body > * {
+	font: var(--open-fonts);
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.header {
+	padding: 65px 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: var(--raleway-fonts);
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	gap: 80px;
+}
+
+.grid {
+	padding: 0 80px 150px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: auto;
+}
+
+.grid .img {
+	width: 640px;
+	order: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img img {
+	width: 100%;
+}
+
+.grid-text {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: start;
+	align-items: start;
+	gap: 40px;
+}
+
+.grid-sub-text {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: start;
+	align-items: start;
+	gap: 20px;
+}
+
+h2 {
+	margin-top: 65px;
+	font-size: var(--h2-font);
+}
+
+h2 {
+	font-size: var(--h3-font);
+}
+
+h2,
+h3,
+h4,
+form .btn {
+	font-weight: 700;
+	font-family: var(--raleway-fonts);
+}
+
+h2,
+h4 {
+	color: var(--very-dark-blue);
+}
+
+.grid-sub-text p {
+	color: var(--very-dark-blue);
+}
+
+.email {
+	width: 100%;
+}
+
+.email form {
+	width: 100%;
+	flex-flow: row wrap;
+	gap: 16px;
+	font-size: var(--s-font);
+}
+
+.input {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.input input {
+	width: 320px;
+	height: 45px;
+	padding-inline-start: 21px;
+	outline: none;
+	border: 1px solid var(--very-dark-blue);
+	color: var(--light-grayish-blue);
+	border-radius: 6px;
+}
+
+.input input:enabled {
+	color: initial;
+}
+
+.input p {
+	color: var(--red);
+}
+
+form .btn {
+	width: 200px;
+	height: 45px;
+	color: var(--light-grayish-blue);
+	font-size: var(--s-font);
+	background-color: var(--dark-blue);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	border-radius: 6px;
+}
+
+form .btn:hover {
+	background-color: var(--dark-blue-op);
+}
+
+.bgi {
+	width: 100%;
+	height: 114px;
+	background-image: url(img/bg-curve-desktop.svg);
+	background-size: contain;
+	background-position: bottom;
+	background-repeat: no-repeat;
+}
+
+.two {
+	margin-bottom: -50px;
+	background-color: var(--light-grayish-blue);
+}
+
+.grid-sub-text p a {
+	color: var(--moderate-cyan);
+	text-decoration: none;
+	padding-bottom: 4px;
+	border-bottom: 1px solid var(--moderate-cyan);
+	position: relative;
+}
+
+.grid-sub-text p a:hover {
+	opacity: 0.8;
+}
+
+.grid-sub-text p a img {
+	padding-bottom: 8px;
+	display: inline;
+	position: absolute;
+	bottom: 0;
+}
+
+.quote {
+	width: 360px;
+	height: 220px;
+	padding: 25px 34px;
+	box-shadow: 1px 1px 10px 1px var(--desaturated-blue);
+	font-size: var(--s-font);
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 16px;
+	border-radius: 5px;
+}
+
+.avatar {
+	gap: 8px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.avatar-img {
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.avatar-img img {
+	width: 100%;
+}
+
+.avatar-info {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.avatar-info p {
+	font-size: var(--xs-fonts);
+}
+
+.flex {
+	height: auto;
+	padding: 110px 80px 77px;
+	background-color: var(--desaturated-blue);
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 30px;
+}
+
+.flex > * {
+	max-width: 520px;
+}
+
+.text {
+	display: flex;
+	flex-flow: column wrap;
+	color: var(--light-grayish-blue);
+	gap: 25px;
+}
+
+.flex .email {
+	max-width: 480px;
+}
+
+.flex .email form {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 16px;
+}
+
+.flex .input,
+.flex input {
+	width: 100%;
+}
+
+.flex .btn {
+	background-color: var(--bright-blue);
+}
+
+.flex .btn:hover {
+	background-color: var(--bright-blue-op);
+}
+
+footer.footer {
+	padding: 100px 80px 70px;
+	display: flex;
+	flex-flow: column nowrap;
+	background-color: var(--very-dark-blue);
+	color: var(--footer-color);
+	gap: 25px;
+}
+
+.links {
+	justify-content: space-between;
+}
+
+.contacts,
+.f-links {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 20px;
+}
+
+.contacts > *:hover,
+.f-links > *:hover {
+	color: var(--bright-blue-op);
+	border-color: var(--bright-blue-op);
+}
+
+.contact-links {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+
+.contact-links:first-child img {
+	width: 20px;
+	height: 20px;
+}
+
+.contact-links:last-child img {
+	width: 20px;
+	height: 16px;
+}
+
+.contact-links a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.socials {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+}
+
+.social-links {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 1px solid var(--footer-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.social-links:hover {
+	border: 1px solid var(--bright-blue-op);
+}
+
+.social-links p,
+.social-links p img {
+	width: 70%;
+	height: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.social-links .disn {
+	display: none;
+}
+
+.social-links:hover .disf {
+	display: none;
+}
+
+.social-links:hover .disn {
+	display: flex;
+}
+
+@media screen and (max-width: 1000px) {
+	.grid {
+		padding: 0 80px 150px;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.grid .img {
+		order: 0;
+	}
+
+	.blank {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	:root {
+		--open-fonts: 400 30px 'Open Sans';
+		--h2-font: 50px;
+		--h3-font: 36px;
+		--s-font: 22px;
+	}
+
+	.df {
+		display: flex;
+		flex-flow: column nowrap;
+	}
+
+	.header {
+		padding: 48px;
+	}
+
+	.nav {
+		gap: 48px;
+	}
+
+	.grid {
+		text-align: center;
+		padding: 0 42px 150px;
+	}
+
+	.grid .img {
+		width: calc(100% - 20px);
+	}
+
+	.two .grid-text {
+		align-items: center;
+		text-align: left;
+		gap: 65px;
+	}
+
+	.grid-sub-text {
+		gap: 65px;
+	}
+
+	.grid-sub-text p {
+		align-items: center;
+	}
+
+	.cyan {
+		width: 100%;
+	}
+
+	.arrow {
+		width: 30px;
+	}
+
+	.email form {
+		gap: 30px;
+	}
+
+	.input input,
+	form .btn {
+		width: 100%;
+		height: 80px;
+	}
+
+	.quote {
+		width: 560px;
+		height: 340px;
+		padding: 40px 53px;
+		gap: 30px;
+	}
+
+	.quote-img {
+		width: 20px;
+	}
+
+	.avatar {
+		gap: 15px;
+	}
+
+	.avatar-img {
+		height: 48px;
+		width: 48px;
+	}
+
+	.bgi {
+		background-image: url(img/bg-curve-mobile.svg);
+	}
+
+	.flex {
+		height: 690;
+		padding: 116px 75px 140px;
+		gap: 50px;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.text {
+		gap: 45px;
+	}
+
+	footer.footer {
+		padding: 128px 80px 93px;
+		gap: 84px;
+	}
+
+	.contact-links:first-child img {
+		width: 36px;
+		height: 36px;
+	}
+
+	.contact-links:last-child img {
+		width: 40px;
+		height: 32px;
+	}
+
+	.links {
+		gap: 110px;
+	}
+
+	.contacts,
+	.f-links {
+		gap: 45px;
+	}
+
+	.socials {
+		gap: 20px;
+	}
+
+	.social-links {
+		width: 55px;
+		height: 55px;
+	}
+}
