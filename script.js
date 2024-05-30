@@ -1,51 +1,59 @@
-const info = document.getElementById('info');
-const infos = document.getElementById('info1');
-const mail = document.getElementById('mail');
-const mails = document.getElementById('mail1');
+const mail = document.getElementById('mail'),
+	mails = document.getElementById('mail1');
+btn = document.querySelectorAll('.btn');
 
-let a, b, c, d, e;
+let pattern;
 
-const showInfo = () => {
-	a = mail.value;
-	b = Array.from(a);
-	c = b.length;
-	d = b.includes('@');
-	e = b.includes('.');
-	c === 0
-		? ((info.innerText = 'Enter an email address'),
-		  (infos.innerText = 'Enter an email address'))
-		: d && e
-		? ((info.innerText = 'Check your email please'),
-		  (infos.innerText = 'Check your email please'))
-		: ((info.innerText = 'Please enter a valid email address'),
-		  (infos.innerText = 'Please enter a valid email address'));
+mail.addEventListener('click', () => {
+	mail.style.border = '1px solid var(--very-dark-blue) ';
+	mail.nextElementSibling.style.display = 'none';
+});
+
+const submit = () => {
+	pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+	mail.value.match(pattern) || mails.value.match(pattern)
+		? ((mail.nextElementSibling.innerHTML = 'Check your email please'),
+		  (mails.nextElementSibling.innerHTML = 'Check your mail'),
+		  (mail.nextElementSibling.style.display = 'flex'),
+		  (mails.nextElementSibling.style.display = 'flex'),
+		  (mail.nextElementSibling.style.color = 'var(--very-dark-blue)'),
+		  (mails.nextElementSibling.style.color = 'var(--very-dark-blue)'),
+		  (mail.style.border = '1px solid var(--very-dark-blue) '),
+		  (mails.style.border = '1px solid var(--very-dark-blue) '))
+		: !mail.value || !mails.value
+		? ((mail.nextElementSibling.innerHTML = `Can't be blank`),
+		  (mails.nextElementSibling.innerHTML = `Can't be blank`),
+		  (mail.nextElementSibling.style.display = 'flex'),
+		  (mails.nextElementSibling.style.display = 'flex'),
+		  (mail.nextElementSibling.style.color = 'var(--red)'),
+		  (mails.nextElementSibling.style.color = 'var(--red)'),
+		  (mail.style.border = '2px solid var(--red)'),
+		  (mails.style.border = '2px solid var(--red)'))
+		: !mail.value.match(pattern) || !mails.value.match(pattern)
+		? ((mail.nextElementSibling.innerHTML =
+				'Please enter a valid email address'),
+		  (mails.nextElementSibling.innerHTML =
+				'Please enter a valid email address'),
+		  (mail.nextElementSibling.style.display = 'flex'),
+		  (mails.nextElementSibling.style.display = 'flex'),
+		  (mail.nextElementSibling.style.color = 'var(--red)'),
+		  (mails.nextElementSibling.style.color = 'var(--red)'),
+		  (mail.style.border = '1px solid var(--red)'),
+		  (mails.style.border = '1px solid var(--red)'))
+		: ((mail.nextElementSibling.innerHTML = 'Error'),
+		  (mails.nextElementSibling.innerHTML = 'Error'),
+		  (mail.nextElementSibling.style.display = 'flex'),
+		  (mails.nextElementSibling.style.display = 'flex'),
+		  (mail.nextElementSibling.style.color = 'var(--red)'),
+		  (mails.nextElementSibling.style.color = 'var(--red)'),
+		  (mail.style.border = '1px solid var(--red)'),
+		  (mails.style.border = '1px solid var(--red)'));
+
+	mail.value = '';
+	mails.value = '';
 };
 
-const showInfo1 = () => {
-	a = mails.value;
-	b = Array.from(a);
-	c = b.length;
-	d = b.includes('@');
-	e = b.includes('.');
-	c === 0
-		? ((info.innerText = 'Enter an email address'),
-		  (infos.innerText = 'Enter an email address'))
-		: d && e
-		? ((info.innerText = 'Check your email please'),
-		  (infos.innerText = 'Check your email please'))
-		: ((info.innerText = 'Please enter a valid email address'),
-		  (infos.innerText = 'Please enter a valid email address'));
-};
-
-const hideInfo = () => {
-	info.innerText = ' ';
-	infos.innerText = ' ';
-};
-
-const shareInput = () => {
-	mails.value = mail.value;
-};
-
-const shareInput1 = () => {
-	mail.value = mails.value;
-};
+for (let i = 0; i < btn.length; i++) {
+	btn[i].addEventListener('click', submit);
+}
